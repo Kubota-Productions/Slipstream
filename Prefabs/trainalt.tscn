@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://xwialrw10x0e"]
+
+[ext_resource type="PackedScene" uid="uid://rrwua0lkmeja" path="res://Assets/ENV/train.glb" id="1_8oq3b"]
+[ext_resource type="Script" path="res://Scripts/train.gd" id="2_vmsfx"]
+
+[node name="train2" instance=ExtResource("1_8oq3b")]
+script = ExtResource("2_vmsfx")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28952, 4.20641, 0)
+visible = false
+use_collision = true
+size = Vector3(15.7839, 7.67383, 4.76172)

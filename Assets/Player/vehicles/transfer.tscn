@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmrj4d3ubmisa"]
+
+[ext_resource type="PackedScene" uid="uid://ct2pp8dei557m" path="res://Assets/Player/vehicles/car.glb" id="1_emuto"]
+
+[node name="car" instance=ExtResource("1_emuto")]

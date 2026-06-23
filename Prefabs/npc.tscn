@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://qql2x7guq8yc"]
+
+[ext_resource type="PackedScene" uid="uid://bvq7nf2ctnvw1" path="res://Assets/enemy/enemy.glb" id="1_t4x0p"]
+[ext_resource type="Script" path="res://Prefabs/npc.gd" id="1_yba00"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gygph"]
+
+[node name="NPC" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_yba00")
+
+[node name="enemy" parent="." instance=ExtResource("1_t4x0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_gygph")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]

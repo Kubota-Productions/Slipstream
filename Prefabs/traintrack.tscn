@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://8ccagvolr16"]
+
+[ext_resource type="PackedScene" uid="uid://bf2xkv0wgbprt" path="res://Assets/ENV/traintrack.glb" id="1_bk4vu"]
+[ext_resource type="Script" path="res://Scripts/tracktiling.gd" id="2_4t3ii"]
+
+[node name="traintrack" instance=ExtResource("1_bk4vu")]
+script = ExtResource("2_4t3ii")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Cube" index="0"]
+visible = false
+use_collision = true
+size = Vector3(3.79883, 0.407227, 3.31152)

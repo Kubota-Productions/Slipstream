@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfub2a20j1jbw"]
+
+[ext_resource type="PackedScene" uid="uid://gl2ywh1xfhp5" path="res://Assets/ENV/grass.glb" id="1_05igx"]
+[ext_resource type="Shader" path="res://Materials/grass.gdshader" id="2_0kt5x"]
+[ext_resource type="Texture2D" uid="uid://dg5sm7uinmwkl" path="res://Assets/ENV/grass_grass.png" id="3_3hkff"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hlama"]
+render_priority = 0
+shader = ExtResource("2_0kt5x")
+shader_parameter/grass_texture = ExtResource("3_3hkff")
+
+[node name="grass" instance=ExtResource("1_05igx")]
+
+[node name="grass_001" parent="." index="0"]
+material_override = SubResource("ShaderMaterial_hlama")

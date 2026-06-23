@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://du4w1putw7euy"]
+
+[ext_resource type="PackedScene" uid="uid://7bgucjv024jr" path="res://Assets/ENV/trainenergy.glb" id="1_b8gg4"]
+
+[node name="trainenergy" instance=ExtResource("1_b8gg4")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Cube_003" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.15337, 3)
+visible = false
+use_collision = true
+size = Vector3(1, 9.30673, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Cube_003" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.8539, 0.111084)
+visible = false
+use_collision = true
+size = Vector3(1, 2.65199, 6.77783)

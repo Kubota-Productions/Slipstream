@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://qk4xrjnmqiqk"]
+
+[ext_resource type="Texture2D" uid="uid://becvi3rpn1kv5" path="res://Assets/textures/ground.png" id="1_pn2k2"]
+
+[resource]
+albedo_texture = ExtResource("1_pn2k2")
+emission_enabled = true
+emission = Color(0.329412, 0.313726, 0.521569, 1)
+emission_energy_multiplier = 0.85
+uv1_triplanar = true
+uv2_triplanar = true

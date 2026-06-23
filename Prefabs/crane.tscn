@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc5j0muld43y0"]
+
+[ext_resource type="PackedScene" uid="uid://2cpkbxsv2bdy" path="res://Assets/ENV/crane.glb" id="1_wj04y"]
+
+[node name="crane" type="Node3D"]
+
+[node name="crane" parent="." instance=ExtResource("1_wj04y")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="crane"]
+transform = Transform3D(11.8587, 0, 0, 0, 3.69637, 0, 0, 0, 25.651, 0, 1.82018, -0.808847)
+visible = false
+use_collision = true
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="crane"]
+transform = Transform3D(17.1748, 0, 0, 0, 5.06779, 0, 0, 0, 1.28509, 0, 2.73588, -10.0443)
+visible = false
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="crane"]
+transform = Transform3D(6.51229, 0, 0, 0, 10.9918, 0, 0, 0, 13.2164, 0, 8.43153, -3.26378)
+visible = false
+use_collision = true
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="crane"]
+transform = Transform3D(2.53076, 0, 0, 0, 29.1898, -1.35769, 0, 9.59485, 4.13041, -1.68961, 23.3247, 3.44168)
+visible = false
+use_collision = true

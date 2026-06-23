@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cysi1ri0hnfpe"]
+
+[ext_resource type="Script" path="res://Prefabs/locomotive.gd" id="1_yyjyl"]
+[ext_resource type="PackedScene" uid="uid://bp41e8u6udnow" path="res://Prefabs/train_locomotive.tscn" id="2_1qcy0"]
+[ext_resource type="PackedScene" uid="uid://cyoou76lys8fa" path="res://Prefabs/train_locomotive1.tscn" id="3_yxilv"]
+
+[node name="Locomotive" type="Node3D"]
+script = ExtResource("1_yyjyl")
+metadata/path_offset_wheel_front_1 = 0.0
+metadata/path_offset_wheel_back_1 = 10.0
+metadata/path_offset_wheel_front_2 = 25.0
+metadata/path_offset_wheel_back_2 = 30.0
+metadata/path_offset_wheel_front_3 = 45.0
+metadata/path_offset_wheel_back_3 = 50.0
+
+[node name="train" parent="." instance=ExtResource("2_1qcy0")]
+
+[node name="train2" parent="." instance=ExtResource("3_yxilv")]
+
+[node name="train3" parent="." instance=ExtResource("3_yxilv")]

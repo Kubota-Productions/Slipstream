@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxwbbugteg77j"]
+
+[ext_resource type="PackedScene" uid="uid://btqka2fyc8h2l" path="res://Assets/ENV/trainpost.glb" id="1_ykukh"]
+
+[node name="trainpost" instance=ExtResource("1_ykukh")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.03922, 0)
+visible = false
+size = Vector3(0.283203, 4.02289, 0.222656)
