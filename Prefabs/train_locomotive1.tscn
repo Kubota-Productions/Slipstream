@@ -1,14 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyoou76lys8fa"]
+[gd_scene format=3 uid="uid://cyoou76lys8fa"]
 
 [ext_resource type="PackedScene" uid="uid://rrwua0lkmeja" path="res://Assets/ENV/train.glb" id="1_si1ls"]
-[ext_resource type="Script" path="res://Prefabs/train_new.gd" id="2_swm5m"]
+[ext_resource type="Script" uid="uid://dy04qfabg5vkw" path="res://Prefabs/train_new.gd" id="2_swm5m"]
 [ext_resource type="PackedScene" uid="uid://dj2yu3yy2ebi4" path="res://Assets/ENV/trainbottom.glb" id="3_hqe7p"]
-[ext_resource type="Script" path="res://Scripts/wheels_locomotive.gd" id="4_f8h5j"]
+[ext_resource type="Script" uid="uid://bkkw4o72t32i7" path="res://Scripts/wheels_locomotive.gd" id="4_f8h5j"]
 [ext_resource type="PackedScene" uid="uid://cm6aypgldjonm" path="res://Assets/ENV/train2top.glb" id="5_0rf7v"]
-[ext_resource type="Script" path="res://Scripts/train_top.gd" id="6_jlyl3"]
+[ext_resource type="Script" uid="uid://cmikrls0dhepb" path="res://Scripts/train_top.gd" id="6_jlyl3"]
 
-[node name="train" instance=ExtResource("1_si1ls")]
-transform = Transform3D(1, 0.000399948, 0.000292836, -0.00039992, 1, -0.000102387, -0.000292874, 0.000102278, 1, 0, 0, 0)
+[node name="train" unique_id=1681857980 instance=ExtResource("1_si1ls")]
+transform = Transform3D(1, 0.00039994987, 0.00029283305, -0.00039991998, 0.99999994, -0.00010239512, -0.000292874, 0.000102278, 0.99999994, 0, 0, 0)
 script = ExtResource("2_swm5m")
 metadata/path_follow_updated = true
 
@@ -36,33 +36,33 @@ visible = false
 transform = Transform3D(1, -7.02016e-12, 0, -4.34142e-12, 1, 0, 2.91038e-11, -7.27596e-12, 1, -0.265949, -1.41576e-12, -1.45519e-11)
 visible = false
 
-[node name="train_wheel_front" parent="." index="7" instance=ExtResource("3_hqe7p")]
+[node name="train_wheel_front" parent="." index="7" unique_id=1248133096 instance=ExtResource("3_hqe7p")]
 transform = Transform3D(1, 2.21227e-11, 0, -3.34062e-11, 1, -7.27596e-12, 2.91038e-11, 0, 1, 0, 0, 0)
 script = ExtResource("4_f8h5j")
 metadata/path_offset = 0.0
 
-[node name="CSGBox3D" type="CSGBox3D" parent="train_wheel_front" index="1"]
+[node name="CSGBox3D" type="CSGBox3D" parent="train_wheel_front" index="1" unique_id=146929393]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0198622, 1.50241, 0)
 visible = false
 use_collision = true
 size = Vector3(3.77215, 1.8064, 2.85645)
 
-[node name="train_wheel_back" parent="." index="8" instance=ExtResource("3_hqe7p")]
+[node name="train_wheel_back" parent="." index="8" unique_id=287215247 instance=ExtResource("3_hqe7p")]
 transform = Transform3D(1, 5.12266e-11, -2.91038e-11, -3.34026e-11, 1, -1.45519e-11, 5.82077e-11, 0, 1, -6.62927, 4.21863e-10, -3.49246e-10)
 script = ExtResource("4_f8h5j")
 metadata/path_offset = 10.0
 
-[node name="CSGBox3D" type="CSGBox3D" parent="train_wheel_back" index="1"]
+[node name="CSGBox3D" type="CSGBox3D" parent="train_wheel_back" index="1" unique_id=674584818]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0198622, 1.50241, 0)
 visible = false
 use_collision = true
 size = Vector3(3.77215, 1.8064, 2.85645)
 
-[node name="train2top" parent="." index="9" instance=ExtResource("5_0rf7v")]
+[node name="train2top" parent="." index="9" unique_id=732519849 instance=ExtResource("5_0rf7v")]
 transform = Transform3D(1, -7.01661e-12, 0, -4.33786e-12, 1, 0, 8.73115e-11, -2.18279e-11, 1, -3, 2.16751e-10, -1.74623e-10)
 script = ExtResource("6_jlyl3")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="train2top" index="6"]
+[node name="CSGBox3D" type="CSGBox3D" parent="train2top" index="6" unique_id=785161767]
 transform = Transform3D(1.57431, 1.61062e-10, 0, -5.87804e-10, 1.00022, -1.09139e-10, 7.85803e-10, -1.52795e-10, 1.00016, -0.755672, 4.1985, 0.0110148)
 visible = false
 use_collision = true
