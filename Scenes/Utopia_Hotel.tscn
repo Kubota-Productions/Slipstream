@@ -19,31 +19,13 @@
 [ext_resource type="PackedScene" uid="uid://fhsrux5xqtei" path="res://Assets/ENV/rbt.glb" id="18_m08ld"]
 [ext_resource type="PackedScene" uid="uid://bsw4otp6gpbxw" path="res://Prefabs/hovercarrier.tscn" id="18_q4gfx"]
 [ext_resource type="PackedScene" uid="uid://cysi1ri0hnfpe" path="res://Prefabs/locomotive.tscn" id="19_6to3q"]
-[ext_resource type="PackedScene" uid="uid://bkx26llgbo3wp" path="res://Assets/ENV/drone.glb" id="21_cli5o"]
 [ext_resource type="PackedScene" uid="uid://b7p4a5phs2gxi" path="res://Assets/Player/newplayer/Gravrushcustom1.glb" id="21_hqwmq"]
 [ext_resource type="PackedScene" uid="uid://dr0n7u5hvqgg0" path="res://Assets/ENV/cartruckthing1.glb" id="22_cli5o"]
 [ext_resource type="ArrayMesh" uid="uid://c2puvt2mj836m" path="res://Assets/ENV/grass.res" id="23_12o6s"]
+[ext_resource type="PackedScene" uid="uid://7bgucjv024jr" path="res://Assets/ENV/trainenergy.glb" id="24_7p31s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i17ep"]
 albedo_color = Color(0.164706, 0.231373, 0.290196, 1)
-
-[sub_resource type="Environment" id="Environment_cmt54"]
-background_mode = 1
-background_color = Color(0.92549, 0.490196, 0, 1)
-background_energy_multiplier = 3.0
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 2.5
-tonemap_exposure = 0.49
-ssao_enabled = true
-ssao_radius = 1.17
-ssao_power = 1.97926
-fog_enabled = true
-fog_light_color = Color(0.937255, 0.545098, 0, 1)
-fog_light_energy = 2.11
-fog_density = 0.001
-fog_height = 3.0
-fog_height_density = 2.439
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tot5w"]
 render_priority = 0
@@ -63,6 +45,23 @@ shader_parameter/grazing_angle_modulation_factor = 50.0
 [sub_resource type="QuadMesh" id="QuadMesh_wi0nl"]
 flip_faces = true
 size = Vector2(2, 2)
+
+[sub_resource type="Environment" id="Environment_cmt54"]
+background_mode = 1
+background_color = Color(0.92549, 0.490196, 0, 1)
+background_energy_multiplier = 3.0
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 2.5
+tonemap_exposure = 0.49
+ssao_radius = 1.17
+ssao_power = 1.97926
+fog_enabled = true
+fog_light_color = Color(0.937255, 0.545098, 0, 1)
+fog_light_energy = 2.11
+fog_density = 0.001
+fog_height = 3.0
+fog_height_density = 2.439
 
 [sub_resource type="Curve3D" id="Curve3D_mc37y"]
 _data = {
@@ -115,6 +114,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7212, 41.87305, -111.13994
 material_override = SubResource("StandardMaterial3D_i17ep")
 use_collision = true
 size = Vector3(11.4547, 9.20785, 50.9244)
+
+[node name="CSGBox3D36" type="CSGBox3D" parent="ENV" unique_id=1265357810]
+transform = Transform3D(1, 0, 0, 0, 0.9618894, 0.27343884, 0, -0.27343884, 0.9618894, -10.491005, 15.923727, -129.67091)
+material_override = SubResource("StandardMaterial3D_i17ep")
+use_collision = true
+size = Vector3(11.4547, 3.1976752, 62.012005)
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="ENV" unique_id=1559510473]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -0.577834, 0, 1, -2.52579e-08, 13.1375, -5.57227, -43.1947)
@@ -320,13 +325,23 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 57.952
 [node name="hovercarrier" parent="ENV" unique_id=1413518861 instance=ExtResource("18_q4gfx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7076, 2, 22.0602)
 
-[node name="Skybox&Shading" type="Node3D" parent="." unique_id=1734681133]
+[node name="Shading" type="Node3D" parent="ENV" unique_id=114659365]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0348625, -0.113506, -0.0667)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Skybox&Shading" unique_id=316805305]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ENV/Shading" unique_id=1864331949]
+material_override = SubResource("ShaderMaterial_tot5w")
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_wi0nl")
+
+[node name="Skybox" type="Node3D" parent="." unique_id=1734681133]
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Skybox" unique_id=316805305]
 environment = SubResource("Environment_cmt54")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Skybox&Shading" unique_id=670633796]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Skybox" unique_id=670633796]
 transform = Transform3D(0.609107, 0.45167, -0.651906, 0, 0.821985, 0.569509, 0.793088, -0.346892, 0.500678, 0, 0, 0)
+visible = false
 light_color = Color(1, 0.898039, 0.592157, 1)
 light_energy = 0.0
 light_angular_distance = 7.0
@@ -335,13 +350,6 @@ shadow_bias = 0.05
 shadow_normal_bias = 0.0
 shadow_opacity = 0.35
 shadow_blur = 1.202
-
-[node name="Shading" type="Node3D" parent="Skybox&Shading" unique_id=114659365]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Skybox&Shading/Shading" unique_id=1864331949]
-material_override = SubResource("ShaderMaterial_tot5w")
-extra_cull_margin = 16384.0
-mesh = SubResource("QuadMesh_wi0nl")
 
 [node name="Player" parent="." unique_id=1054720731 instance=ExtResource("4_kmnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.501426, 2, -25.5855)
@@ -359,12 +367,13 @@ script = ExtResource("8_v5ttu")
 distance_between_planks = 0.5
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1676414166]
-transform = Transform3D(-0.996419, 0.00019753753, -0.084377, 0, 0.999994, 0.0023411103, 0.08437635, 0.0023327644, -0.9964266, -16.9084, 2.05102, 120.855)
+transform = Transform3D(-0.996419, 0.00019753753, -0.08437667, 0, 0.999994, 0.0023411012, 0.08437635, 0.0023327644, -0.99642277, -16.9084, 2.05102, 120.855)
 
 [node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Path3D" unique_id=1609670781]
 multimesh = SubResource("MultiMesh_7yifo")
 
 [node name="Locomotive" parent="." unique_id=1869391086 instance=ExtResource("19_6to3q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13407707, 0, 0)
 
 [node name="NPC\'s" type="Node3D" parent="." unique_id=94777099]
 
@@ -415,9 +424,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8229, 3.06152, -21.4991)
 
 [node name="Gravrushcustom1" parent="." unique_id=1174099175 instance=ExtResource("21_hqwmq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5277514, 2.113506, -25.572294)
-
-[node name="drone" parent="." unique_id=165000754 instance=ExtResource("21_cli5o")]
-transform = Transform3D(6.428369, -1.5795708, -2.7024992, -0.022711074, 6.1492233, -3.648153, 3.1301806, 3.28854, 5.5235825, 65.72162, 3.4783995, -229.95341)
 
 [node name="cartruckthing1" parent="." unique_id=1982298722 instance=ExtResource("22_cli5o")]
 transform = Transform3D(0.3617138, 0, 0.32309154, 0, 0.485, 0, -0.32309154, 0, 0.3617138, -18.250856, 9.513828, 256.9921)
@@ -533,5 +539,47 @@ mesh = ExtResource("23_12o6s")
 [node name="Grass4" type="MeshInstance3D" parent="." unique_id=49180955]
 transform = Transform3D(4.1777444, 0, -6.74616, 0, 7.935, 0, 6.74616, 0, 4.1777444, 65.409584, 2.181658, 268.8578)
 mesh = ExtResource("23_12o6s")
+
+[node name="trainenergy" parent="." unique_id=642569751 instance=ExtResource("24_7p31s")]
+transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 106.14884, 2.113507, -94.03904)
+
+[node name="trainenergy2" parent="." unique_id=729784416 instance=ExtResource("24_7p31s")]
+transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 83.63579, 2.1135032, -104.108246)
+
+[node name="trainenergy3" parent="." unique_id=2022234723 instance=ExtResource("24_7p31s")]
+transform = Transform3D(0.9999945, 0, 0.0033335537, 0, 1, 0, -0.0033335537, 0, 0.9999945, -40.827393, 2.1135032, -125.340294)
+
+[node name="trainenergy4" parent="." unique_id=691100365 instance=ExtResource("24_7p31s")]
+transform = Transform3D(0.24154934, 0, 0.9703886, 0, 1, 0, -0.9703886, 0, 0.24154934, -103.179596, 2.113507, -99.52083)
+
+[node name="trainenergy5" parent="." unique_id=1104982894 instance=ExtResource("24_7p31s")]
+transform = Transform3D(-0.769355, 0, 0.6388216, 0, 1, 0, -0.6388216, 0, -0.769355, -61.440495, 2.113507, -43.59698)
+
+[node name="trainenergy6" parent="." unique_id=1077388545 instance=ExtResource("24_7p31s")]
+transform = Transform3D(-0.30812046, 0, 0.95134735, 0, 1, 0, -0.95134735, 0, -0.30812046, -33.59414, 2.113507, -7.83491)
+
+[node name="trainenergy7" parent="." unique_id=86952947 instance=ExtResource("24_7p31s")]
+transform = Transform3D(-0.30812046, 0, 0.95134735, 0, 1, 0, -0.95134735, 0, -0.30812046, -17.277723, 2.113507, 117.811485)
+
+[node name="trainenergy8" parent="." unique_id=525117981 instance=ExtResource("24_7p31s")]
+transform = Transform3D(-0.9704938, 0, 0.24112594, 0, 1, 0, -0.24112594, 0, -0.9704938, 19.758688, 2.113507, 153.83829)
+
+[node name="trainenergy9" parent="." unique_id=1448782403 instance=ExtResource("24_7p31s")]
+transform = Transform3D(-0.9825154, 0, -0.18618102, 0, 1, 0, 0.18618102, 0, -0.9825154, 95.26357, 2.113507, 158.85376)
+
+[node name="trainenergy10" parent="." unique_id=831065753 instance=ExtResource("24_7p31s")]
+transform = Transform3D(-0.5929131, 0, -0.80526644, 0, 1, 0, 0.80526644, 0, -0.5929131, 182.46991, 2.113507, 128.95772)
+
+[node name="trainenergy11" parent="." unique_id=1081972115 instance=ExtResource("24_7p31s")]
+transform = Transform3D(0.26560655, 0, -0.9640816, 0, 1, 0, 0.9640816, 0, 0.26560655, 199.70256, 2.113506, 64.73617)
+
+[node name="trainenergy12" parent="." unique_id=1228100981 instance=ExtResource("24_7p31s")]
+transform = Transform3D(0.36807582, 0, -0.92979586, 0, 1, 0, 0.92979586, 0, 0.36807582, 188.25972, 2.113506, 19.482904)
+
+[node name="trainenergy13" parent="." unique_id=1095222115 instance=ExtResource("24_7p31s")]
+transform = Transform3D(0.5606244, 0, -0.8280701, 0, 1, 0, 0.8280701, 0, 0.5606244, 166.537, 2.113506, -30.145573)
+
+[node name="trainenergy14" parent="." unique_id=1185724424 instance=ExtResource("24_7p31s")]
+transform = Transform3D(0.73633313, 0, -0.67661893, 0, 1, 0, 0.67661893, 0, 0.73633313, 138.23056, 2.1135051, -69.621956)
 
 [connection signal="curve_changed" from="Path3D" to="Path3D" method="_on_curve_changed"]

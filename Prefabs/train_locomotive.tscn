@@ -1,14 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://bp41e8u6udnow"]
+[gd_scene format=3 uid="uid://bp41e8u6udnow"]
 
 [ext_resource type="PackedScene" uid="uid://rrwua0lkmeja" path="res://Assets/ENV/train.glb" id="1_l12ud"]
-[ext_resource type="Script" path="res://Prefabs/train_new.gd" id="2_781if"]
+[ext_resource type="Script" uid="uid://dy04qfabg5vkw" path="res://Prefabs/train_new.gd" id="2_781if"]
 [ext_resource type="PackedScene" uid="uid://dj2yu3yy2ebi4" path="res://Assets/ENV/trainbottom.glb" id="3_7y7ev"]
-[ext_resource type="Script" path="res://Scripts/wheels_locomotive.gd" id="4_qg0gs"]
+[ext_resource type="Script" uid="uid://bkkw4o72t32i7" path="res://Scripts/wheels_locomotive.gd" id="4_qg0gs"]
 [ext_resource type="PackedScene" uid="uid://qkq7iv4dsyot" path="res://Assets/ENV/traintop.glb" id="5_5w77w"]
-[ext_resource type="Script" path="res://Scripts/train_top.gd" id="6_mup3e"]
+[ext_resource type="Script" uid="uid://cmikrls0dhepb" path="res://Scripts/train_top.gd" id="6_mup3e"]
 
-[node name="train" instance=ExtResource("1_l12ud")]
-transform = Transform3D(1, 0.000399948, 0.000292836, -0.00039992, 1, -0.000102387, -0.000292874, 0.000102278, 1, 0, 0, 0)
+[node name="train" unique_id=1769005944 instance=ExtResource("1_l12ud")]
+transform = Transform3D(1, 0.00039994987, 0.00029283305, -0.00039991998, 0.99999994, -0.00010239512, -0.000292874, 0.000102278, 0.99999994, 0, 0, 0)
 script = ExtResource("2_781if")
 metadata/path_follow_updated = true
 
@@ -36,33 +36,35 @@ visible = false
 transform = Transform3D(1, -7.02016e-12, 0, -4.34142e-12, 1, 0, 2.91038e-11, -7.27596e-12, 1, -0.265949, -1.41576e-12, -1.45519e-11)
 visible = false
 
-[node name="train_wheel_front" parent="." index="7" instance=ExtResource("3_7y7ev")]
-transform = Transform3D(1, 2.21227e-11, 0, -3.34062e-11, 1, -7.27596e-12, 2.91038e-11, 0, 1, 0, 0, 0)
+[node name="train_wheel_front" parent="." index="7" unique_id=1190627287 instance=ExtResource("3_7y7ev")]
+transform = Transform3D(1, 2.2083668e-11, 0, -3.3441694e-11, 1, -7.275958e-12, 5.820766e-11, -7.275958e-12, 1, 4.539029, 0.0018153846, 0.001329178)
 script = ExtResource("4_qg0gs")
-metadata/path_offset = 0.0
+Speed = 3
+metadata/path_offset = 4.5
 
-[node name="CSGBox3D" type="CSGBox3D" parent="train_wheel_front" index="1"]
+[node name="CSGBox3D" type="CSGBox3D" parent="train_wheel_front" index="1" unique_id=685397112]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0198622, 1.50241, 0)
 visible = false
 use_collision = true
 size = Vector3(3.77215, 1.8064, 2.85645)
 
-[node name="train_wheel_back" parent="." index="8" instance=ExtResource("3_7y7ev")]
-transform = Transform3D(1, 5.12266e-11, -2.91038e-11, -3.34026e-11, 1, -1.45519e-11, 5.82077e-11, 0, 1, -6.62927, 4.21863e-10, -3.49246e-10)
+[node name="train_wheel_back" parent="." index="8" unique_id=438116118 instance=ExtResource("3_7y7ev")]
+transform = Transform3D(1, 5.11875e-11, -2.910383e-11, -3.3441694e-11, 1, -1.4551915e-11, 8.731149e-11, -7.275958e-12, 1, -8, -0.001, -0.001)
 script = ExtResource("4_qg0gs")
+Speed = 3
 metadata/path_offset = 10.0
 
-[node name="CSGBox3D" type="CSGBox3D" parent="train_wheel_back" index="1"]
+[node name="CSGBox3D" type="CSGBox3D" parent="train_wheel_back" index="1" unique_id=178771983]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0198622, 1.50241, 0)
 visible = false
 use_collision = true
 size = Vector3(3.77215, 1.8064, 2.85645)
 
-[node name="traintop" parent="." index="9" instance=ExtResource("5_5w77w")]
-transform = Transform3D(1, 2.21227e-11, 0, -3.34062e-11, 1, -7.27596e-12, 2.91038e-11, 0, 1, -3, 1.00222e-10, -1.16415e-10)
+[node name="traintop" parent="." index="9" unique_id=1588903463 instance=ExtResource("5_5w77w")]
+transform = Transform3D(1, 3.34062e-11, -2.91038e-11, -3.34062e-11, 1, 0, 2.91038e-11, 9.722474e-22, 1, -3, 1.00222e-10, -1.16415e-10)
 script = ExtResource("6_mup3e")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="traintop" index="6"]
+[node name="CSGBox3D" type="CSGBox3D" parent="traintop" index="6" unique_id=2074320521]
 transform = Transform3D(1.57431, 1.3187e-10, 0, -5.29646e-10, 1.00022, -1.01863e-10, 8.14907e-10, -1.67347e-10, 1.00016, -0.755672, 4.1985, 0.0110148)
 visible = false
 use_collision = true

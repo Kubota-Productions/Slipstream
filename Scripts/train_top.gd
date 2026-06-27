@@ -1,35 +1,22 @@
 extends Node3D
 
+@onready var front_wheel: Node3D = $"../train_wheel_front"
+@onready var back_wheel: Node3D = $"../train_wheel_back"
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _physics_process(_delta):
+	position = front_wheel.position.lerp(back_wheel.position, 0.5)
+
+	var direction := (front_wheel.position - back_wheel.position).normalized()
+
+	if direction.length_squared() > 0.0001:
+		set_train_rotation(direction)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
-	var pos_front = get_node("../train_wheel_front").position
-	var pos_back = get_node("../train_wheel_back").position
-	var dir_front = get_node("../train_wheel_back").direction
-	var dir_back = get_node("../train_wheel_back").direction
-	
-	
-	position = ( pos_front + pos_back ) / 2
-	var direction = ( dir_front + dir_back ) / 2
-	set_train_rotation(direction)
-	
-func set_train_rotation(normalized_vector: Vector3):
-	# Make sure the vector is normalized
-	normalized_vector = normalized_vector.normalized()
-	
-	# Get the rotation needed for the train to look at the vector
-	var basis = Basis().looking_at(normalized_vector)  # Corrected method name
-	
-	basis.y = Vector3(0, 1, 0)
-	basis.x = normalized_vector
+func set_train_rotation(direction: Vector3):
+	var basis := Basis()
+	basis.x = direction
+	basis.y = Vector3.UP
 	basis.z = basis.x.cross(basis.y).normalized()
-	
-	var transform = Transform3D(basis, position)
-	
-	# Convert the rotation to Euler angles
-	set_transform(transform)
+	basis.y = basis.z.cross(basis.x).normalized()
+
+	transform.basis = basis

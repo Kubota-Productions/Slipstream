@@ -1,7 +1,6 @@
 extends Node3D
 
 @export var Speed = 5
-@export var WaitAmount = 10
 @onready var pathFollow: PathFollow3D
 @onready var direction: Vector3
 
