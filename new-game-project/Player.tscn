@@ -17,5 +17,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 [node name="SpringArm3D" type="SpringArm3D" parent="Camera origin" unique_id=1248112041]
 
 [node name="Camera3D" type="Camera3D" parent="Camera origin/SpringArm3D" unique_id=1275234092]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.637883)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 current = true

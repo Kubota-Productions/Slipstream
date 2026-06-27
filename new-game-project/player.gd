@@ -10,13 +10,21 @@ const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravitational_diraction : Vector3
+
+enum grav_states {
+	NORMAL,
+	MODIFIED,
+	FLOATING,
+	LANDING #for changing 
+}
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		pivot.rotate_z(deg_to_rad(-event.relative.x * sesitivity))
+		rotate_y(deg_to_rad(-event.relative.x * sesitivity))
 		pivot.rotate_x(deg_to_rad(-event.relative.y * sesitivity))
 		pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-90), deg_to_rad(45))
 
@@ -34,7 +42,7 @@ func _physics_process(delta):
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector("left", "right", "up", "down")
+	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
