@@ -1,16 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://fs4o1kwjdwob"]
+[gd_scene format=3 uid="uid://fs4o1kwjdwob"]
 
 [ext_resource type="PackedScene" uid="uid://d076mgcx436l4" path="res://Assets/ENV/building.glb" id="1_2qr4h"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_g5x4m"]
-points = PackedVector3Array(23.9998, 126.457, 23.9998, -24.0006, 3.58807, -24.0006, -24.0006, 3.58807, 23.9872, 23.9998, 3.55585, 23.9998, 23.9872, 126.425, -24.0006, -24.0006, 126.425, -24.0006, 23.9872, 3.58807, -24.0006, -24.0006, 126.425, 23.9872)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_i2p4b"]
+points = PackedVector3Array(5.8527126, 130, 24.796518, 23.983028, 73.56402, 24.024664, 23.997578, 130, 23.995535, -5.857561, 130, 24.796518, 5.8527126, 0, 24.796518, 23.997578, 0, 23.995535, 24.763714, 130, 5.864172, -24.002424, 130, 23.995535, -23.992725, 73.56402, 24.024664, -5.857561, 0, 24.796518, 24.763714, 0, 5.864172, 24.763714, 130, -5.869028, -24.768562, 130, 5.864172, -24.002424, 0, 23.995535, 24.763714, 0, -5.869028, 23.997578, 130, -24.005247, -24.768562, 130, -5.869028, -24.768562, 0, 5.864172, 23.997578, 0, -24.005247, 5.8527126, 130, -24.796522, 23.983028, 73.56402, -24.02952, -24.002424, 130, -24.005247, -24.768562, 0, -5.869028, 5.8527126, 0, -24.796522, -5.857561, 130, -24.796522, -23.992725, 73.56402, -24.02952, -24.002424, 0, -24.005247, -5.857561, 0, -24.796522)
 
-[node name="building" instance=ExtResource("1_2qr4h")]
+[node name="building" unique_id=869578471 instance=ExtResource("1_2qr4h")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cube_014" index="0"]
-visible = false
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_014" index="0" unique_id=2017886121]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_014/StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1.05996, 0, 0, 0, 1, 0, -3.58628, 0)
-visible = false
-shape = SubResource("ConvexPolygonShape3D_g5x4m")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_014/StaticBody3D" index="0" unique_id=1476136194]
+shape = SubResource("ConvexPolygonShape3D_i2p4b")
